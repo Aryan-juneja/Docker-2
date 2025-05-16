@@ -25,6 +25,8 @@ jobs:
             git reset --hard origin/main
 
             echo "Rebuilding Docker containers..."
+            # Remove all stopped containers, networks, images, and cache
+            sudo docker system prune -a --volumes -f
             sudo docker-compose down --volumes --remove-orphans
             sudo docker-compose build --no-cache
             sudo docker-compose up -d
