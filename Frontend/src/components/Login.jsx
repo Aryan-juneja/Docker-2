@@ -16,7 +16,7 @@ function Login() {
   const onSubmit = async (data) => {
     const userInfo = { email: data.email, password: data.password };
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL_DEV}/api/v1/users/login`, userInfo);
+      const response = await axios.post(`http://backend:8080/api/v1/users/login`, userInfo);
       login(response.data.message);
       toast.success("LOGGED IN SUCCESSFULLY");
       document.getElementById("my_modal_3").close();
