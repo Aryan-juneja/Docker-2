@@ -8,19 +8,11 @@ import routes from "./Routes/Contact.routes.js";
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:3000', 'http://frontend:3000','http://44.222.24.96:8080'];
-
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+app.use(cors({
+  origin: '*',
   credentials: true,
-  optionsSuccessStatus: 200,
-};
+}));
+
 
 app.use(cors(corsOptions));
 app.use(cookieParser());
