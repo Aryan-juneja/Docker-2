@@ -8,7 +8,7 @@ import routes from "./Routes/Contact.routes.js";
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:3000', 'http://frontend:3000'];
+const allowedOrigins = ['http://localhost:3000', 'http://frontend:3000','http://44.222.24.96:8080'];
 
 const corsOptions = {
   origin: function (origin, callback) {

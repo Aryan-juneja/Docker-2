@@ -1,20 +1,19 @@
-name: 'Ecomerce'
 services:
   frontend:
     build:
-      context: ./frontend
+      context: ./Frontend
       dockerfile: Dockerfile
     container_name: frontend
     ports:
       - '3000:3000'
     env_file:
-      - ./frontend/.env
+      - ./Frontend/.env
     depends_on:
       - backend
     networks:
       - ecommerce-network
     volumes:
-      - ./frontend:/app
+      - ./Frontend:/app
       - /app/node_modules
   backend:
     build:
@@ -32,3 +31,4 @@ volumes:
 networks:
   ecommerce-network:
     driver: bridge
+              
